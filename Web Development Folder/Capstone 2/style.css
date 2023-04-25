@@ -1,0 +1,25 @@
+
+.gradient-background {
+  background: linear-gradient(300deg, #5acdf3, #3e2cdd, #abc8ee);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+}
+.top-container {
+    text-align: center;
+    font-size: 2rem;
+    padding: 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#title-text {
+    font-size: 1.5rem;
+}
+
+section {
+  text-align: center;
+  font-size: 1.25rem;
+  padding-top: 50px;
+  padding-left: 300px;
+  padding-right: 300px;
+  padding-bottom: 400px;
+}
