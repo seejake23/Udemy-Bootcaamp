@@ -1,0 +1,37 @@
+body {
+    background-color: #393E46;
+}
+
+.container {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    height: 80%;
+  }
+
+.die {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    display: inline-block;
+}
+
+h1 {
+    margin: 30px;
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    color: #790d5d;
+    text-align: center;
+    font-style: italic;
+    padding-bottom: 50px;
+}
+
+h3 {
+    font-size: 1rem;
+    color: #4ECCA3;
+    font-family: 'Indie Flower', cursive;
+    text-decoration: underline;
+    color: #3ef3b7;
+  }
