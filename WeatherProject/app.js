@@ -14,7 +14,9 @@ app.get("/", function(req, res) {
 
 app.post("/", function(req, res) {
     const query = req.body.cityName;
-    const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&units=imperial&appid=2d77872927e3f8443993dd4c22c512ac";
+
+    //needs Weather appid token to run
+    const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&units=imperial&appid=";
     https.get(url, function(response) {
         // returns HTTP status code in the terminal if functional or not 
         console.log(response.statusCode);
