@@ -1,10 +1,20 @@
 const express = require("express");
 const https = require("https");
+// npm i body-parser *needs to be installed in console
+const bodyParser = require("body-parser")
 
 const app = express();
 
+// needed to parse through input
+app.use(bodyParser.urlencoded({extended: true}));
+
 app.get("/", function(req, res) {
-    const url = "https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=30.7918613&lon=-83.7898868&appid=2d77872927e3f8443993dd4c22c512ac";
+    res.sendFile(__dirname + "/index.html");
+});
+
+app.post("/", function(req, res) {
+    const query = req.body.cityName;
+    const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&units=imperial&appid=2d77872927e3f8443993dd4c22c512ac";
     https.get(url, function(response) {
         // returns HTTP status code in the terminal if functional or not 
         console.log(response.statusCode);
@@ -28,15 +38,14 @@ app.get("/", function(req, res) {
             const icon = weatherData.weather[0].icon; 
             const imageURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
 
-            res.write("<p>The weather description is " + description + ".</p>")
-            res.write("<h1>The temperature in Boston is " + temp + " degrees F.</h1>")
+            res.write("<p>Sky description: " + description + ".</p>")
+            res.write("<h1>The temperature in "+ query +  " is " + temp + " degrees F.</h1>")
             res.write("<img src=" + imageURL + ">");
             res.send();
         });
         // JSON.stringify(object) would flat pack the JSON into a string
     });
-
-});
+})
 
 
 
